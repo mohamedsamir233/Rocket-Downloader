@@ -1,9 +1,10 @@
 from PyQt5.QtWidgets import QMainWindow , QApplication , QMessageBox , QFileDialog
 from PyQt5.QtCore import  QThread , pyqtSignal , Qt
 import sys , re , time , requests , os , traceback , webbrowser 
+from os.path import exists
 from pytube import YouTube
 from main import Ui_MainWindow
-os.environ["IMAGEIO_FFMPEG_EXE"] = ("C:/ffmpeg/bin/ffmpeg.exe")
+os.environ["IMAGEIO_FFMPEG_EXE"] = ("ffmpeg/bin/ffmpeg.exe")
 from moviepy.editor import *
 
 class thread (QThread) :
@@ -74,27 +75,38 @@ class thread (QThread) :
                 final_Audio = video.streams.get_by_itag(251)
                 self.ui.label_12.setText (str(final_Audio.title))
                 self.ui.label_13.setText (str(round(final_Audio.filesize/1000000,2)) + " mb")
-                audio_name = final_Audio.download (self.path)
-                self.ui.progressBar.setValue (50)
-                base_mp3  = os.path.splitext (audio_name)[0] + ".mp3"
-                self.convert (self.path,audio_name , base_mp3)
-                os.remove (audio_name)
-                self.ui.progressBar.setValue (100)
-                self.msg.emit ("Download Completed")
-                QThread.sleep (3)
-                self.ui.progressBar.setValue (0)
+                file_exists = exists("{}/{}.mp3".format (self.path, final_Audio.title))
+                if file_exists == True :
+                    print ("file is exist")
+                    self.msg.emit ("file is exist")
+
+                elif file_exists == False :
+                    audio_name = final_Audio.download (self.path)
+                    self.ui.progressBar.setValue (50)
+                    base_mp3  = os.path.splitext (audio_name)[0] + ".mp3"
+                    self.convert (self.path,audio_name , base_mp3)
+                    os.remove (audio_name)
+                    self.ui.progressBar.setValue (100)
+                    self.msg.emit ("Download Completed")
+                    QThread.sleep (3)
+                    self.ui.progressBar.setValue (0)
             else :
                 print ("Not checked - mp4")
                 final_video = video.streams.get_by_resolution(self.quality)
                 self.ui.label_12.setText (str(final_video.title))
                 self.ui.label_13.setText (str(round(final_video.filesize/1000000,2)) + " mb")
                 QThread.sleep (1)
-                self.ui.progressBar.setValue (20)
-                final_video.download (self.path)
-                self.ui.progressBar.setValue (100)
-                self.msg.emit ("Download Completed")
-                QThread.sleep (3)
-                self.ui.progressBar.setValue (0)
+                file_exists = exists("{}/{}.mp4".format (self.path, final_video.title))
+                if file_exists == True : 
+                    self.msg.emit ("file is Exist")
+                elif file_exists == False :
+                    print ("False")
+                    self.ui.progressBar.setValue (20)
+                    final_video.download (self.path)
+                    self.ui.progressBar.setValue (100)
+                    self.msg.emit ("Download Completed")
+                    QThread.sleep (3)
+                    self.ui.progressBar.setValue (0)
             
         except Exception as err : 
             self.msg.emit (str(err))
