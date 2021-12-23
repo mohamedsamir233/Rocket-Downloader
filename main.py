@@ -15,7 +15,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setWindowModality(QtCore.Qt.NonModal)
-        MainWindow.resize(1100, 816)
+        MainWindow.resize(1100, 800)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(50)
         sizePolicy.setVerticalStretch(50)
@@ -78,13 +78,16 @@ class Ui_MainWindow(object):
         self.label_8.setStyleSheet("background-color:transparent ;\n"
 "font: 75 10pt \"Moon\";")
         self.label_8.setObjectName("label_8")
-        self.pushButton_3 = QtWidgets.QPushButton(self.frame_9)
-        self.pushButton_3.setGeometry(QtCore.QRect(258, 17, 35, 35))
-        self.pushButton_3.setStyleSheet("background-color:transparent ;")
-        self.pushButton_3.setText("")
-        self.pushButton_3.setIcon(icon)
-        self.pushButton_3.setIconSize(QtCore.QSize(32, 32))
-        self.pushButton_3.setObjectName("pushButton_3")
+        self.label_14 = QtWidgets.QLabel(self.frame_9)
+        self.label_14.setGeometry(QtCore.QRect(250, 20, 30, 30))
+        self.label_14.setStyleSheet("background-color: transparent ;")
+        self.label_14.setText("")
+        self.label_14.setTextFormat(QtCore.Qt.PlainText)
+        self.label_14.setPixmap(QtGui.QPixmap("bin/rocket.png"))
+        self.label_14.setScaledContents(True)
+        self.label_14.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_14.setIndent(-1)
+        self.label_14.setObjectName("label_14")
         self.horizontalLayout_2.addWidget(self.frame_9)
         self.frame_6 = QtWidgets.QFrame(self.frame_7)
         self.frame_6.setMaximumSize(QtCore.QSize(150, 70))
@@ -251,7 +254,7 @@ class Ui_MainWindow(object):
         self.label.setObjectName("label")
         self.lineEdit = QtWidgets.QLineEdit(self.frame_10)
         self.lineEdit.setGeometry(QtCore.QRect(32, 60, 421, 30))
-        self.lineEdit.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
+        self.lineEdit.setContextMenuPolicy(QtCore.Qt.ActionsContextMenu)
         self.lineEdit.setStyleSheet("font: 75 12pt \"Moon\";\n"
 "padding-left : 4px ;\n"
 "")
@@ -270,7 +273,7 @@ class Ui_MainWindow(object):
         self.label_2.raise_()
         self.lineEdit.raise_()
         self.frame_5 = QtWidgets.QFrame(self.frame_4)
-        self.frame_5.setGeometry(QtCore.QRect(20, 300, 431, 151))
+        self.frame_5.setGeometry(QtCore.QRect(20, 350, 431, 151))
         self.frame_5.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.frame_5.setStyleSheet("QFrame { \n"
 "background-color: rgb(255, 255, 255,0.2);\n"
@@ -421,6 +424,55 @@ class Ui_MainWindow(object):
         self.pushButton_8.setIcon(icon5)
         self.pushButton_8.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_8.setObjectName("pushButton_8")
+        self.checkBox_2 = QtWidgets.QCheckBox(self.frame_4)
+        self.checkBox_2.setGeometry(QtCore.QRect(110, 260, 281, 41))
+        font = QtGui.QFont()
+        font.setFamily("Moon")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(9)
+        self.checkBox_2.setFont(font)
+        self.checkBox_2.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.checkBox_2.setStyleSheet("QCheckBox {\n"
+"color: rgb(0, 0, 0) ;\n"
+"font: 75 14pt \"Moon\";\n"
+"border-radius : 20px ;\n"
+"background-color: rgb(255, 255, 255,0.2);\n"
+"padding-right : 10px ;\n"
+"}\n"
+"        \n"
+"QCheckBox:hover {\n"
+"            border-style:solid;\n"
+"            padding-left: 2px;\n"
+"            padding-right: 5px;\n"
+"            padding-bottom: 2px;\n"
+"            padding-top: 2px;\n"
+"            border-width:2px;\n"
+"         /*   border-color: transparent; */\n"
+"border-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #d7801a);\n"
+"        }\n"
+"QCheckBox::indicator:checked {\n"
+"            image: url(/usr/share/icons/Adwaita/16x16/actions/object-select-symbolic.symbolic.png);\n"
+"            height: 15px;\n"
+"            width: 15px;\n"
+"            border-style:solid;\n"
+"            border-width: 1px;\n"
+"            border-color: #48a5fd;\n"
+"            color: #ffffff;\n"
+"            border-radius: 3px;\n"
+"            background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #48a5fd, stop:0.5 #329cfb, stop:1 #48a5fd);\n"
+"        }\n"
+"QCheckBox::indicator:unchecked {\n"
+"            height: 15px;\n"
+"            width: 15px;\n"
+"            border-style:solid;\n"
+"            border-width: 1px;\n"
+"            border-color: #48a5fd;\n"
+"            border-radius: 3px;\n"
+"            background-color: #fbfdfa;\n"
+"        }")
+        self.checkBox_2.setObjectName("checkBox_2")
         self.horizontalLayout_3.addWidget(self.frame_4)
         self.frame_3 = QtWidgets.QFrame(self.frame)
         self.frame_3.setStyleSheet("")
@@ -475,6 +527,12 @@ class Ui_MainWindow(object):
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.pushButton_2 = QtWidgets.QPushButton(self.frame_8)
         self.pushButton_2.setGeometry(QtCore.QRect(154, 110, 100, 30))
+        font = QtGui.QFont()
+        font.setFamily("Moon")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setWeight(50)
+        self.pushButton_2.setFont(font)
         self.pushButton_2.setStyleSheet("        QPushButton\n"
 "        {\n"
 "            color: #b1b1b1;\n"
@@ -500,12 +558,12 @@ class Ui_MainWindow(object):
 "")
         self.pushButton_2.setObjectName("pushButton_2")
         self.label_3 = QtWidgets.QLabel(self.frame_3)
-        self.label_3.setGeometry(QtCore.QRect(140, 330, 161, 31))
+        self.label_3.setGeometry(QtCore.QRect(140, 320, 161, 31))
         self.label_3.setStyleSheet("background-color: rgb(255, 255, 255,0);\n"
 "font: 75 14pt \"Moon\";")
         self.label_3.setObjectName("label_3")
         self.checkBox = QtWidgets.QCheckBox(self.frame_3)
-        self.checkBox.setGeometry(QtCore.QRect(90, 270, 261, 41))
+        self.checkBox.setGeometry(QtCore.QRect(90, 260, 261, 41))
         self.checkBox.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.checkBox.setStyleSheet("QCheckBox {\n"
 "color: rgb(0, 0, 0) ;\n"
@@ -547,7 +605,7 @@ class Ui_MainWindow(object):
 "        }")
         self.checkBox.setObjectName("checkBox")
         self.label_10 = QtWidgets.QLabel(self.frame_3)
-        self.label_10.setGeometry(QtCore.QRect(90, 400, 141, 41))
+        self.label_10.setGeometry(QtCore.QRect(90, 380, 141, 41))
         font = QtGui.QFont()
         font.setFamily("Moon")
         font.setPointSize(14)
@@ -558,7 +616,7 @@ class Ui_MainWindow(object):
         self.label_10.setStyleSheet("font: 75 14pt \"Moon\";")
         self.label_10.setObjectName("label_10")
         self.label_11 = QtWidgets.QLabel(self.frame_3)
-        self.label_11.setGeometry(QtCore.QRect(90, 460, 141, 41))
+        self.label_11.setGeometry(QtCore.QRect(90, 440, 141, 41))
         font = QtGui.QFont()
         font.setFamily("Moon")
         font.setPointSize(14)
@@ -569,7 +627,7 @@ class Ui_MainWindow(object):
         self.label_11.setStyleSheet("font: 75 14pt \"Moon\";")
         self.label_11.setObjectName("label_11")
         self.label_12 = QtWidgets.QLabel(self.frame_3)
-        self.label_12.setGeometry(QtCore.QRect(220, 400, 261, 41))
+        self.label_12.setGeometry(QtCore.QRect(220, 380, 261, 41))
         font = QtGui.QFont()
         font.setFamily("Moon")
         font.setPointSize(14)
@@ -581,7 +639,7 @@ class Ui_MainWindow(object):
         self.label_12.setText("")
         self.label_12.setObjectName("label_12")
         self.label_13 = QtWidgets.QLabel(self.frame_3)
-        self.label_13.setGeometry(QtCore.QRect(220, 460, 291, 41))
+        self.label_13.setGeometry(QtCore.QRect(220, 440, 291, 41))
         font = QtGui.QFont()
         font.setFamily("Moon")
         font.setPointSize(14)
@@ -592,6 +650,39 @@ class Ui_MainWindow(object):
         self.label_13.setStyleSheet("font: 75 14pt \"Moon\";")
         self.label_13.setText("")
         self.label_13.setObjectName("label_13")
+        self.pushButton_9 = QtWidgets.QPushButton(self.frame_3)
+        self.pushButton_9.setGeometry(QtCore.QRect(180, 510, 128, 28))
+        self.pushButton_9.setSizeIncrement(QtCore.QSize(0, 0))
+        self.pushButton_9.setBaseSize(QtCore.QSize(0, 0))
+        self.pushButton_9.setTabletTracking(False)
+        self.pushButton_9.setStyleSheet("        QPushButton\n"
+"        {\n"
+"            color: #b1b1b1;\n"
+"            background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);\n"
+"            border-width: 1px;\n"
+"            border-color: #1e1e1e;\n"
+"            border-style: solid;\n"
+"            border-radius: 10;\n"
+"            padding: 3px;\n"
+"            padding-left: 5px;\n"
+"            padding-right: 5px;\n"
+"    font: 75 14pt \"Moon\";\n"
+"        }\n"
+"        \n"
+"        QPushButton:pressed\n"
+"        {\n"
+"            background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d2d, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252525);\n"
+"        }\n"
+"        \n"
+"        QPushButton:hover\n"
+"        {\n"
+"            border: 2px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #d7801a);\n"
+"        }\n"
+"")
+        self.pushButton_9.setAutoRepeat(False)
+        self.pushButton_9.setAutoExclusive(False)
+        self.pushButton_9.setFlat(False)
+        self.pushButton_9.setObjectName("pushButton_9")
         self.horizontalLayout_3.addWidget(self.frame_3)
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_3.addItem(spacerItem1)
@@ -653,9 +744,12 @@ class Ui_MainWindow(object):
         self.frame_2.setObjectName("frame_2")
         self.gridLayout = QtWidgets.QGridLayout(self.frame_2)
         self.gridLayout.setObjectName("gridLayout")
-        spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem3, 0, 2, 1, 1)
         self.pushButton = QtWidgets.QPushButton(self.frame_2)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
+        self.pushButton.setSizePolicy(sizePolicy)
         self.pushButton.setSizeIncrement(QtCore.QSize(0, 0))
         self.pushButton.setBaseSize(QtCore.QSize(0, 0))
         self.pushButton.setTabletTracking(False)
@@ -688,8 +782,10 @@ class Ui_MainWindow(object):
         self.pushButton.setFlat(False)
         self.pushButton.setObjectName("pushButton")
         self.gridLayout.addWidget(self.pushButton, 0, 1, 1, 1)
-        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem4, 0, 0, 1, 1)
+        spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout.addItem(spacerItem3, 0, 0, 1, 1)
+        spacerItem4 = QtWidgets.QSpacerItem(64, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout.addItem(spacerItem4, 0, 2, 1, 1)
         self.verticalLayout.addWidget(self.frame_2)
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -708,6 +804,7 @@ class Ui_MainWindow(object):
         self.label_6.setText(_translate("MainWindow", ">>"))
         self.comboBox_2.setItemText(0, _translate("MainWindow", "360p"))
         self.comboBox_2.setItemText(1, _translate("MainWindow", "720p"))
+        self.checkBox_2.setText(_translate("MainWindow", "Download As playlist"))
         self.label_7.setText(_translate("MainWindow", "Save As"))
         self.label_9.setText(_translate("MainWindow", ">>"))
         self.pushButton_2.setText(_translate("MainWindow", "Browse"))
@@ -715,6 +812,7 @@ class Ui_MainWindow(object):
         self.checkBox.setText(_translate("MainWindow", "Download As Audio "))
         self.label_10.setText(_translate("MainWindow", "Video Title : "))
         self.label_11.setText(_translate("MainWindow", "Video Size :"))
+        self.pushButton_9.setText(_translate("MainWindow", "check"))
         self.pushButton.setText(_translate("MainWindow", "Download"))
 
 
